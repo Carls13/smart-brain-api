@@ -34,6 +34,8 @@ db.select('*').from('login').then(data => {
 	console.log(data)
 })
 
+console.log(process.env)
+
 //Cors and parser
 app.use(bodyParser.json());
 app.use(cors())
@@ -58,6 +60,10 @@ app.get('/profile/:id', (req, res)=>{
 
 app.put('/image', (req, res) => {
 	image.handleImage(req, res, db)
+})
+
+app.post('/imageurl', (req, res) => {
+	image.handleApiCall(req, res, db)
 })
 
 //Server running
